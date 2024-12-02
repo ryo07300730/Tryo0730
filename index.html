@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ビューポート設定を追加 -->
-<title>運勢チェッカー</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><span style="color:red;">天気占い</span></title> <!-- タイトルを「天気占い」に変更 -->
+<link rel="stylesheet" href="style.css">
 </head>
-    
 <body>
-    <div class="container">
-        
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="pyscript.html">PyScriptVer</a>
-        <a href="cluster_analysis.html">ClusterAnalysis</a>
-    </nav>
+<nav>
+<a href="index.html">Home</a>
+<a href="pyscript.html">PyScriptVer</a>
+<a href="cluster_analysis.html">ClusterAnalysis</a>
+</nav>
+<label><span style="color:red;">好きな天気を選んでください：</span></label> <!-- ラベルを「天気選択用」に変更 -->
+<select id="weather-select"> <!-- 天気用の`id`に変更 -->
+<option><span style="color:red;">晴れ</span></option>
+<option><span style="color:red;">雨</span></option>
+<option><span style="color:red;">曇り</span></option>
+<option><span style="color:red;">雪</span></option>
+</select>
+<button onclick="<span style="color:red;">checkWeather()</span>"><span style="color:red;">占う</span></button> <!-- 新関数`checkWeather()`にリンク -->
+<p id="result"></p>
+<script>
 
-        <br>
-        <label for="colour-select">好きな色を選んでください：</label>
-        <select id="colour-select">
-            <option value="黒">黒</option>
-            <option value="白">白</option>
-            <option value="オレンジ">オレンジ</option>
-        </select>
-        <br>
-        <label for="number-input">好きな数字を選んでください（0、1、2）※半角数値で入力：</label>
-        <input type="number" id="number-input">
-        <br>
-        <button onclick="checkFortune()">運勢をチェック</button>
-        <p id="result-output"></p>
-        
-    <nav>
-     <a href="index.html">Home</a>
-      <a href="pyscript.html">PyScriptVer</a>
-      <a href="cluster_analysis.html">ClusterAnalysis</a>
-    </nav>
-    </div>    
+        function <span style="color:red;">checkWeather()</span> { <!-- 新関数を定義 -->
 
-    <script src="app.js"></script>
+            const weather = document.getElementById('weather-select').value; <!-- 天気選択値を取得 -->
 
+            let result; 
+
+            switch (weather) { <!-- 天気ごとの占い結果 -->
+
+                case "晴れ": result = <span style="color:red;">"今日は素敵な日になりそう！"</span>; break; 
+
+                case "雨": result = <span style="color:red;">"雨音が癒しを与えてくれるかも。"</span>; break; 
+
+                case "曇り": result = <span style="color:red;">"曇りの日にはリラックスが吉。"</span>; break; 
+
+                case "雪": result = <span style="color:red;">"雪の日には心も浄化されそう！"</span>; break; 
+
+                default: result = "天気を選んでください。";
+
+            }
+
+            document.getElementById('result').innerText = `選んだ天気: ${weather} → ${result}`; 
+
+        }
+</script>
 </body>
-</html>
+</html> 
