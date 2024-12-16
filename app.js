@@ -1,28 +1,30 @@
-     function checkFortune() {
-            var colour = document.getElementById('colour-select').value;
-            var number = parseInt(document.getElementById('number-input').value, 10);
-            var result = "凶"; // デフォルトの値
-
-            if (colour === "黒" && number === 0) {
-                result = "小吉";
-            } else if (colour === "黒" && number === 1) {
-                result = "中吉";
-            } else if (colour === "黒" && number === 2) {
-                result = "凶";
-            } else if (colour === "白" && number === 0) {
-                result = "中吉";
-            } else if (colour === "白" && number === 1) {
-                result = "中吉";
-            } else if (colour === "白" && number === 2) {
-                result = "大凶";
-            } else if (colour === "オレンジ" && number === 0) {
-                result = "凶";
-            } else if (colour === "オレンジ" && number === 1) {
-                result = "大吉";
-            } else if (colour === "オレンジ" && number === 2) {
-                result = "中吉";
-            }
-
-            document.getElementById('result-output').innerText = "あなたの今週の運勢は【" + result + "】です";
-        }
- 
+     <!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>明日のラッキー数字占い</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+<nav>
+<a href="index.html">Home</a>
+<a href="pyscript.html">PyScriptVer</a>
+<a href="cluster_analysis.html">ClusterAnalysis</a>
+</nav>
+<br>
+<label for="number-input">好きな数字を入力してください（0〜9）:</label>
+<input type="number" id="number-input" min="0" max="9">
+<br>
+<button onclick="checkLuckyNumber()">ラッキー数字をチェック</button>
+<p id="result-output"></p>
+<nav>
+<a href="index.html">Home</a>
+<a href="pyscript.html">PyScriptVer</a>
+<a href="cluster_analysis.html">ClusterAnalysis</a>
+</nav>
+</div>    
+<script src="app.js"></script>
+</body>
+</html>
