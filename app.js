@@ -1,30 +1,20 @@
-     <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>明日のラッキー数字占い</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="container">
-<nav>
-<a href="index.html">Home</a>
-<a href="pyscript.html">PyScriptVer</a>
-<a href="cluster_analysis.html">ClusterAnalysis</a>
-</nav>
-<br>
-<label for="number-input">好きな数字を入力してください（0〜9）:</label>
-<input type="number" id="number-input" min="0" max="9">
-<br>
-<button onclick="checkLuckyNumber()">ラッキー数字をチェック</button>
-<p id="result-output"></p>
-<nav>
-<a href="index.html">Home</a>
-<a href="pyscript.html">PyScriptVer</a>
-<a href="cluster_analysis.html">ClusterAnalysis</a>
-</nav>
-</div>    
-<script src="app.js"></script>
-</body>
-</html>
+function checkLuckyNumber() {
+    // ユーザーが入力した数字を取得
+    var number = parseInt(document.getElementById('number-input').value, 10);
+
+    // ラッキー数字を生成（0〜9のランダムな数字）
+    var luckyNumber = Math.floor(Math.random() * 10);
+
+    // 結果のメッセージを初期化
+    var resultMessage = "";
+
+    // 入力された数字とラッキー数字を比較
+    if (number === luckyNumber) {
+        resultMessage = "おめでとう！あなたの選んだ数字【" + number + "】がラッキー数字です！";
+    } else {
+        resultMessage = "残念、選んだ数字【" + number + "】はラッキー数字ではありません。ラッキー数字は【" + luckyNumber + "】です。";
+    }
+
+    // 結果を画面に表示
+    document.getElementById('result-output').innerText = resultMessage;
+}
