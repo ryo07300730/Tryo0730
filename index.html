@@ -2,50 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>天気占い</title> <!-- タイトルを「天気占い」に変更 -->
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ビューポート設定を追加 -->
+<title>運勢チェッカー</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="container">
 <nav>
 <a href="index.html">Home</a>
 <a href="pyscript.html">PyScriptVer</a>
 <a href="cluster_analysis.html">ClusterAnalysis</a>
 </nav>
-<label style="color:red;">好きな天気を選んでください：</label> <!-- ラベルを「天気選択用」に変更 -->
-<select id="weather-select">
-<option>晴れ</option>
-<option>雨</option>
-<option>曇り</option>
-<option>雪</option>
+<br>
+<label for="colour-select">好きな色を選んでください：</label>
+<select id="colour-select">
+<option value="黒">黒</option>
+<option value="白">白</option>
+<option value="オレンジ">オレンジ</option>
 </select>
-<button onclick="checkWeather()">占う</button> <!-- 新関数`checkWeather()`にリンク -->
-<p id="result"></p>
-<script>
-
-        function checkWeather() { <!-- 新関数を定義 -->
-
-            const weather = document.getElementById('weather-select').value; <!-- 天気選択値を取得 -->
-
-            let result; 
-
-            switch (weather) { <!-- 天気ごとの占い結果 -->
-
-                case "晴れ": result = "今日は素敵な日になりそう！"; break; 
-
-                case "雨": result = "雨音が癒しを与えてくれるかも。"; break; 
-
-                case "曇り": result = "曇りの日にはリラックスが吉。"; break; 
-
-                case "雪": result = "雪の日には心も浄化されそう！"; break; 
-
-                default: result = "天気を選んでください。";
-
-            }
-
-            document.getElementById('result').innerText = `選んだ天気: ${weather} → ${result}`; 
-
-        }
-</script>
+<br>
+<label for="number-input">好きな数字を選んでください（0、1、2）※半角数値で入力：</label>
+<input type="number" id="number-input">
+<br>
+<button onclick="checkFortune()">運勢をチェック</button>
+<p id="result-output"></p>
+<nav>
+<a href="index.html">Home</a>
+<a href="pyscript.html">PyScriptVer</a>
+<a href="cluster_analysis.html">ClusterAnalysis</a>
+</nav>
+</div>    
+<script src="app.js"></script>
 </body>
-</html>
+</html> 
