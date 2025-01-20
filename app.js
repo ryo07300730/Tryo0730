@@ -1,51 +1,53 @@
-function checkFortune() {
-    var userNumber = document.getElementById('number-input').value;
-    var result = document.getElementById('result-output');
+function checkFortune(coffeeBean) {
+    var fortuneMessage = document.getElementById('fortune-message');
     var suggestion = document.getElementById('suggestion-output');
-    var retryButton = document.getElementById('retry-button');  // 追加: 再占いボタン
-    var negativeCurse = document.getElementById('negative-curse');  // 追加: 負のオーラメッセージ
+    var retryButton = document.getElementById('retry-button');
+    var negativeCurse = document.getElementById('negative-curse');
     
-    // 運命のメッセージ
-    var fortunes = [
-        "今日は素晴らしい一日になります！",
-        "注意が必要です。慎重に行動しましょう。",
-        "新しいチャンスが訪れそうです！",
-        "何か困難が待ち受けているかもしれませんが、乗り越えられます。",
-        "あなたの努力が実を結ぶ日が来るでしょう！"
-    ];
+    // コーヒー豆占いのメッセージ（運命）
+    var fortunes = {
+        arabica: "アラビカ豆の運命: 落ち着いた日々が訪れるでしょう。あなたには静かな幸せが待っています。",
+        robusta: "ロブスタ豆の運命: 今日は元気いっぱいで、周囲の人々に良い影響を与える日になります。",
+        liberica: "リベリカ豆の運命: やや波乱の一日が待っていますが、あなたには乗り越える力があります。",
+        excelsa: "エクセルサ豆の運命: 新しいチャンスが訪れる予感！積極的に行動すると良い結果が待っています。"
+    };
 
-    // アイテムの提案（悪い結果の際に改善できるアイテム）
+    // 改善アイテム（悪い結果の場合）
     var itemsToImproveDay = [
-        "お守りの石を身に着けると、今日の運勢が改善されるかも。",
-        "ラッキーアイテムとして、黄色い花を飾ってみてください。",
-        "今日のお守りはこの幸運の猫の置物です！",
-        "ラッキーアイテムとして、今日の運勢を引き寄せる本を読むことをおすすめします。",
-        "神社を訪れると、運気が上がるかもしれません。",
-        "コーヒーを飲んでリラックスすると、気分が良くなり、運気も改善されるでしょう。",
-        "縄跳びをすると、気分がスッキリして運気も上がるかもしれません！"
+        "カフェインを摂ることで、エネルギーを補充しましょう。",
+        "お守りのストーンを持つと、運気が上がるかもしれません。",
+        "新しいことに挑戦してみると、運気が改善されます！",
+        "神社を訪れると運気が上がるでしょう。",
+        "お気に入りのコーヒーを飲んで、気分をリフレッシュ！"
     ];
 
-    // ユーザーが入力した数字を元に運命を決める
-    var fortuneIndex = (parseInt(userNumber) + 1) % fortunes.length;
+    // 選ばれたコーヒー豆の運命を表示
+    fortuneMessage.textContent = fortunes[coffeeBean];
 
-    // 運命の結果を表示
-    result.textContent = "あなたの運命は: " + fortunes[fortuneIndex];
-
-    // 良い運命のときの追加メッセージ
-    if (fortuneIndex === 0) {
-        suggestion.textContent = "その調子！あなたからは輝くオーラを感じます。素敵な一日をお過ごしください！";
-        retryButton.style.display = "none";  // 良い運命のときは再占いボタンを隠す
-        negativeCurse.style.display = "none";  // 負のオーラメッセージを非表示
-    } 
-    // 運命が悪い場合、アイテムを提案
-    else {
-        suggestion.textContent = "残念！でも、" + itemsToImproveDay[Math.floor(Math.random() * itemsToImproveDay.length)] + " このアイテムで今日を改善してみて！";
-        retryButton.style.display = "block";  // 悪い運命のときは再占いボタンを表示
-        negativeCurse.style.display = "block";  // 負のオーラメッセージを表示
+    // 良い運命と悪い運命の分岐
+    if (coffeeBean === "arabica" || coffeeBean === "robusta") {
+        suggestion.textContent = "その調子！コーヒー豆のように、あなたの一日は穏やかで素晴らしいものになるでしょう。";
+        retryButton.style.display = "none"; // 良い運命の場合、再占いボタンは隠す
+        negativeCurse.style.display = "none"; // 負のオーラを隠す
+    } else {
+        suggestion.textContent = "残念！ですが、" + itemsToImproveDay[Math.floor(Math.random() * itemsToImproveDay.length)] + " このアイテムで運気を改善してみて！";
+        retryButton.style.display = "block"; // 悪い運命の場合、再占いボタンを表示
+        negativeCurse.style.display = "block"; // 負のオーラを表示
     }
 
-    // 悪い運命の場合に負のオーラメッセージ
-    if (fortuneIndex >= 1) {
+    // 悪い運命の負のオーラ
+    if (coffeeBean === "liberica" || coffeeBean === "excelsa") {
         suggestion.textContent += " さらに、負のオーラが1週間君を追いつめるだろう…";
     }
+
+    // ボタンを非表示にして、占い結果を表示
+    var buttons = document.querySelectorAll('button');
+    buttons.forEach(function(button) {
+        button.style.display = 'none';
+    });
+}
+
+// ページをリセットする関数
+function resetPage() {
+    location.reload();  // ページをリロードして最初の状態に戻す
 }
