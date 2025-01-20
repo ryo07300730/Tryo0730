@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>あなたの運命を占います</title>
+    <title>コーヒー豆占い</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        /* 内部スタイルの追加（必要に応じて） */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
+            background-color: #f3f3f3;
             color: #333;
             text-align: center;
             margin: 0;
@@ -20,7 +19,7 @@
             text-decoration: none;
             color: #007BFF;
         }
-        input, button {
+        input, button, select {
             padding: 10px;
             margin-top: 20px;
         }
@@ -29,6 +28,9 @@
             color: white;
             border: none;
             cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+            padding: 15px 30px;
         }
         button:hover {
             background-color: #0056b3;
@@ -37,54 +39,4 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-        #retry-button {
-            display: none; /* 初めは非表示 */
-            margin-top: 20px;
-        }
-        #negative-curse {
-            display: none;  /* 初めは非表示 */
-            color: red;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="pyscript.html">PyScriptVer</a>
-            <a href="cluster_analysis.html">ClusterAnalysis</a>
-        </nav>
-
-        <h1>あなたの運命を占います</h1>
-        
-        <label for="number-input">好きな数字を入力してください（0〜9）:</label>
-        <input type="number" id="number-input" min="0" max="9">
-        <br>
-        
-        <button onclick="checkFortune()">運命を占う</button>
-        
-        <p id="result-output"></p>
-        
-        <p id="suggestion-output"></p>
-        
-        <button id="retry-button" onclick="checkFortune()">さらに占います</button>
-
-        <!-- 負のオーラのメッセージ -->
-        <p id="negative-curse">負のオーラが1週間君を追いつめるだろう…</p>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="pyscript.html">PyScriptVer</a>
-            <a href="cluster_analysis.html">ClusterAnalysis</a>
-        </nav>
-    </div>
-
-    <script src="app.js"></script>
-</body>
-</html>
+            j
