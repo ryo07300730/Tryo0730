@@ -2,7 +2,8 @@ function checkFortune() {
     var userNumber = document.getElementById('number-input').value;
     var result = document.getElementById('result-output');
     var suggestion = document.getElementById('suggestion-output');
-
+    var retryButton = document.getElementById('retry-button');  // 追加: 再占いボタン
+    
     // 運命のメッセージ
     var fortunes = [
         "今日は素晴らしい一日になります！",
@@ -32,9 +33,16 @@ function checkFortune() {
     // 良い運命のときの追加メッセージ
     if (fortuneIndex === 0) {
         suggestion.textContent = "その調子！あなたからは輝くオーラを感じます。素敵な一日をお過ごしください！";
+        retryButton.style.display = "none";  // 良い運命のときは再占いボタンを隠す
     } 
     // 運命が悪い場合、アイテムを提案
     else {
         suggestion.textContent = "残念！でも、" + itemsToImproveDay[Math.floor(Math.random() * itemsToImproveDay.length)] + " このアイテムで今日を改善してみて！";
+        retryButton.style.display = "inline-block";  // 悪い運命のときは再占いボタンを表示
+    }
+
+    // 悪い運命の場合に負のオーラメッセージ
+    if (fortuneIndex >= 1) {
+        suggestion.textContent += " さらに、負のオーラが1週間君を追いつめるだろう…";
     }
 }
