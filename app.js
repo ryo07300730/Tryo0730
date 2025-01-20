@@ -10,6 +10,8 @@ function checkLuckyNumber() {
 
         resultOutput.textContent = "0〜9の数字を入力してください。";
 
+        resultOutput.style.color = "red"; // エラーメッセージは赤色
+
         return;
 
     }
@@ -67,6 +69,12 @@ function checkLuckyNumber() {
         const luckyItem = luckyItems[input % luckyItems.length];
 
         resultMessage += ` ラッキーアイテムは「${luckyItem}」です！`;
+
+        resultOutput.style.color = "orange"; // 悪い結果はオレンジ色
+
+    } else {
+
+        resultOutput.style.color = "green"; // 良い結果は緑色
 
     }
 
