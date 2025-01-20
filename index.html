@@ -31,6 +31,9 @@
         button:hover {
             background-color: #0056b3;
         }
+        #retry-button {
+            display: none; /* 初めは非表示 */
+        }
     </style>
 </head>
 <body>
@@ -53,6 +56,8 @@
         
         <p id="suggestion-output"></p>
         
+        <button id="retry-button" onclick="checkFortune()">さらに占う</button>
+
         <nav>
             <a href="index.html">Home</a>
             <a href="pyscript.html">PyScriptVer</a>
