@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>明日のラッキー数字占い</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あなたの運命を占います</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* 内部スタイルの追加（必要に応じて） */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+        }
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<nav>
-<a href="index.html">Home</a>
-<a href="pyscript.html">PyScriptVer</a>
-<a href="cluster_analysis.html">ClusterAnalysis</a>
-</nav>
-<br>
-<label for="number-input">好きな数字を入力してください（0〜9）:</label>
-<input type="number" id="number-input" min="0" max="9">
-<br>
-<button onclick="checkLuckyNumber()">ラッキー数字をチェック</button>
-<p id="result-output"></p>
-<nav>
-<a href="index.html">Home</a>
-<a href="pyscript.html">PyScriptVer</a>
-<a href="cluster_analysis.html">ClusterAnalysis</a>
-</nav>
-</div>    
-<script src="app.js"></script>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pyscript.html">PyScriptVer</a>
+            <a href="cluster_analysis.html">ClusterAnalysis</a>
+        </nav>
+
+        <h1>あなたの運命を占います</h1>
+        
+        <label for="number-input">好きな数字を入力してください（0〜9）:</label>
+        <input type="number" id="number-input" min="0" max="9">
+        <br>
+        
+        <button onclick="checkFortune()">運命を占う</button>
+        
+        <p id="result-output"></p>
+        
+        <p id="suggestion-output"></p>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pyscript.html">PyScriptVer</a>
+            <a href="cluster_analysis.html">ClusterAnalysis</a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
