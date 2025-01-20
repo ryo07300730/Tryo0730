@@ -38,7 +38,7 @@ function checkFortune() {
     // 運命が悪い場合、アイテムを提案
     else {
         suggestion.textContent = "残念！でも、" + itemsToImproveDay[Math.floor(Math.random() * itemsToImproveDay.length)] + " このアイテムで今日を改善してみて！";
-        retryButton.style.display = "inline-block";  // 悪い運命のときは再占いボタンを表示
+        retryButton.style.display = "block";  // 悪い運命のときは再占いボタンを表示
     }
 
     // 悪い運命の場合に負のオーラメッセージ
